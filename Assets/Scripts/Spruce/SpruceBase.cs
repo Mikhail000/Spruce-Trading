@@ -7,7 +7,7 @@ namespace Spruce
 {
     public abstract class SpruceBase : StateMachine.StateMachine
     {
-        [SerializeField] protected List <GameObject> spruceCondition;
+        [SerializeField] protected List<GameObject> spruceCondition;
 
         protected float Profit;
 
@@ -19,11 +19,11 @@ namespace Spruce
 
         private int num;
 
-        protected enum State : int { Small = 1, Medium = 2, Large = 3}
+        protected enum State : int { Small = 1, Medium = 2, Large = 3 }
         private State _currentState;
-        
+
         private float _growthPoints;
-        
+
         protected virtual float GrowthPoints
         {
             get
@@ -43,7 +43,7 @@ namespace Spruce
                 spruceCondition[0].SetActive(true);
 
             CurrentClickValue = ClickValue.OneClickValue;
-            
+
             StartCoroutine(CheckGrowthPoints());
         }
 
@@ -55,8 +55,8 @@ namespace Spruce
             AverageGrowthPoints = MaxGrowthPoints / 2;
         }
 
-        private void OnEnable() => ClickReceiver.Click += IncreaseGrowthPoints;
-        private void OnDisable() => ClickReceiver.Click -= IncreaseGrowthPoints;
+        //private void OnEnable() => ClickReceiver.Click += IncreaseGrowthPoints;
+        //private void OnDisable() => ClickReceiver.Click -= IncreaseGrowthPoints;
 
         protected void IncreaseGrowthPoints()
         {
@@ -69,7 +69,7 @@ namespace Spruce
             {
                 if (_growthPoints <= AverageGrowthPoints || _growthPoints <= MaxGrowthPoints)
                 {
-                    
+
                 }
                 yield return null;
             }
