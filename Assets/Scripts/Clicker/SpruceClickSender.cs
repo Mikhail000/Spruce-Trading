@@ -8,16 +8,17 @@ using UnityEngine.EventSystems;
 
 namespace Clicker
 {
-    public class ClickReceiver : MonoBehaviour, IPointerClickHandler
+    public class SpruceClickSender : MonoBehaviour, IPointerClickHandler
     {
-        float clickValue;
-        public static event UnityAction<float> Click;
+        public delegate void Click(float argument);
+        public static event Click spruceClick;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Click?.Invoke(clickValue);
-        
-            Debug.Log("Здарова, заебал");
+
+            spruceClick?.Invoke(0f);
+
+            Debug.Log(name + "Здарова, заебал");
         }
     }
 }

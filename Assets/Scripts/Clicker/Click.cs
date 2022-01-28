@@ -1,6 +1,7 @@
 // class -Click- contains states and behaviors for an "click" entity
 
 using UnityEngine;
+using Clicker;
 
 namespace Clicker
 {
@@ -22,7 +23,6 @@ namespace Clicker
         private void Start()
         {
             _oneClickValue = 1f;
-
         }
 
         public void IncreaseClickValue(float amount)
@@ -35,10 +35,10 @@ namespace Clicker
             OneClickValue -= amount;
         }
 
-        //private void OnEnable() => ClickReceiver.Click.AddListener(DebugClickValue);
-        //private void OnDisable() => ClickReceiver.Click -= DebugClickValue;
+        private void OnEnable() => SpruceClickSender.spruceClick += DebugClickValue;
+        private void OnDisable() => SpruceClickSender.spruceClick -= DebugClickValue;
 
-        private void DebugClickValue()
+        private void DebugClickValue(float clickValue)
         {
             Debug.Log(OneClickValue);
         }
