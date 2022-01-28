@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f08eb220-35c0-4b58-bb78-86e9e626f625" name="Changes" comment="" />
+    <list default="true" id="f08eb220-35c0-4b58-bb78-86e9e626f625" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Spruce-Trading/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spruce-Trading/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Clicker/ClickEventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Clicker/ClickEventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Clicker/ClickEventManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Clicker/ClickEventManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Clicker/SpruceClickSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Clicker/SpruceClickSender.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +26,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -54,9 +60,16 @@
       <option name="presentableId" value="Default" />
       <updated>1643307543807</updated>
       <workItem from="1643307551166" duration="95000" />
+      <workItem from="1643398634333" duration="107000" />
+      <workItem from="1643401771619" duration="121000" />
+      <workItem from="1643402001535" duration="79000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
