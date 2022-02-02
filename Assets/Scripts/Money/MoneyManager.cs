@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
+    public delegate void MoneyChangeTextUI();
+
+    public event MoneyChangeTextUI onChangeTextUI;
+
     private float _sum;
 
     public float Sum
@@ -23,6 +27,7 @@ public class MoneyManager : MonoBehaviour
     public void ChangeMoneyQuantity(float amount)
     {
         Sum += amount;
+        onChangeTextUI?.Invoke();
     }
 
     public void WithdrawMoney(float amount)

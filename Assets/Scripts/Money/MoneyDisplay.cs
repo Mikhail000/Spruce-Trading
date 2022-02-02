@@ -11,9 +11,15 @@ public class MoneyDisplay : MonoBehaviour
     private MoneyManager _playerWallet;
     private TMP_Text _moneyDisplay;
 
-    private void OnEnable()
+
+    private void Start()
     {
 
+    }
+
+    private void OnEnable()
+    {
+        //MoneyManager.onChangeTextUI += UpdateMoneyTextUI;
     }
 
     private void OnDisable()
@@ -21,8 +27,8 @@ public class MoneyDisplay : MonoBehaviour
 
     }
 
-    private void UpdateMoneyTextUI(int playerBalance)
+    private void UpdateMoneyTextUI(float money)
     {
-        _moneyDisplay.text = playerBalance.ToString();
+        _moneyDisplay.text = money.ToString();
     }
 }
