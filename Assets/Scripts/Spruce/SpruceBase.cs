@@ -20,7 +20,7 @@ namespace Spruce
         private int num;
 
         protected enum State : int { Small = 1, Medium = 2, Large = 3 }
-        private State _currentState;
+        //private State _currentState;
 
         private float _growthPoints;
 
@@ -49,7 +49,7 @@ namespace Spruce
 
         protected SpruceBase(float maxGrowthPoints, float profit)
         {
-            _currentState = State.Small;
+            //_currentState = State.Small;
             Profit = profit;
             MaxGrowthPoints = maxGrowthPoints;
             AverageGrowthPoints = MaxGrowthPoints / 2;

@@ -1,8 +1,10 @@
+//class -MoneyManager- contains states and behaviors for managing all money
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWallet : MonoBehaviour
+public class MoneyManager : MonoBehaviour
 {
     private float _sum;
 

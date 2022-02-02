@@ -1,13 +1,13 @@
 // class -Click- contains states and behaviors for an "click" entity
 
 using UnityEngine;
-using Clicker;
+using System;
 
 namespace Clicker
 {
     public class Click : MonoBehaviour
     {
-        private float _oneClickValue;
+        [SerializeField] private float _oneClickValue;
         public float OneClickValue
         {
             get
@@ -22,7 +22,7 @@ namespace Clicker
 
         private void Start()
         {
-            _oneClickValue = 1f;
+            //_oneClickValue = 1f;
         }
 
         public void IncreaseClickValue(float amount)
@@ -35,12 +35,13 @@ namespace Clicker
             OneClickValue -= amount;
         }
 
-        private void OnEnable() => SpruceClickSender.spruceClick += DebugClickValue;
-        private void OnDisable() => SpruceClickSender.spruceClick -= DebugClickValue;
+        private void OnEnable() => ClickExtension.click += DebugClickValue;
+        private void OnDisable() => ClickExtension.click -= DebugClickValue;
 
-        private void DebugClickValue(float clickValue)
+        private void DebugClickValue()
         {
             Debug.Log(OneClickValue);
         }
+
     }
 }

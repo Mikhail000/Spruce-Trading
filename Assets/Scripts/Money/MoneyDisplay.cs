@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
+
+[RequireComponent(typeof(TMP_Text))]
 public class MoneyDisplay : MonoBehaviour
 {
-    private PlayerWallet _playerWallet;
+    private MoneyManager _playerWallet;
     private TMP_Text _moneyDisplay;
 
     private void OnEnable()
@@ -15,10 +18,10 @@ public class MoneyDisplay : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
     }
-    
-    private void ChangeBalance(int playerBalance)
+
+    private void UpdateMoneyTextUI(int playerBalance)
     {
         _moneyDisplay.text = playerBalance.ToString();
     }
