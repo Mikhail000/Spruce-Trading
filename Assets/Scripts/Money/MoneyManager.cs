@@ -4,34 +4,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyManager : MonoBehaviour
+namespace Scripts
 {
-    public delegate void MoneyChangeTextUI();
-
-    public event MoneyChangeTextUI onChangeTextUI;
-
-    private float _sum;
-
-    public float Sum
+    public class MoneyManager : MonoBehaviour
     {
-        get
+        /*-FIELDS-*/
+
+        private static float _sum;
+        private static bool _sign;
+
+        private MoneyDisplay _moneyDisplay;
+
+        /*-DELEGATES-*/
+
+        public delegate void MoneyChangeTextUI(float money, bool sign);
+
+        MoneyChangeTextUI moneyDisplay = new MoneyChangeTextUI(MoneyDisplay.UpdateMoneyTextUI);
+        //MoneyChangeTextUI moneyChange;
+
+        /*-PROPERTIES-*/
+
+        public static bool Sign
         {
-            return _sum;
+            get
+            {
+                return _sign;
+            }
+            private set
+            {
+                _sign = value;
+            }
         }
-        private set
+
+        public static float Sum
         {
-            _sum = value;
+            get
+            {
+                return _sum;
+            }
+            private set
+            {
+                _sum = value;
+            }
         }
-    }
 
-    public void ChangeMoneyQuantity(float amount)
-    {
-        Sum += amount;
-        onChangeTextUI?.Invoke();
-    }
 
-    public void WithdrawMoney(float amount)
-    {
-        Sum -= amount;
+        public void ChangeMoneyQuantity(float amount)
+        {
+            Sum += amount;
+        }
+
+        public void WithdrawMoney(float amount)
+        {
+            Sum -= amount;
+        }
     }
 }
+

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Clicker;
 using UnityEngine;
 
 namespace Spruce
@@ -11,7 +10,6 @@ namespace Spruce
 
         protected float Profit;
 
-        protected readonly Click ClickValue;
         protected float CurrentClickValue;
 
         protected float MaxGrowthPoints;
@@ -42,7 +40,7 @@ namespace Spruce
             if (spruceCondition[0].activeSelf == false)
                 spruceCondition[0].SetActive(true);
 
-            CurrentClickValue = ClickValue.OneClickValue;
+            //CurrentClickValue = ClickValue.OneClickValue;
 
             StartCoroutine(CheckGrowthPoints());
         }

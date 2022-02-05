@@ -6,7 +6,7 @@ using System;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-namespace Clicker
+namespace Scripts
 {
     public class ClickExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {

@@ -3,11 +3,12 @@
 using UnityEngine;
 using System;
 
-namespace Clicker
+namespace Scripts
 {
     public class Click : MonoBehaviour
     {
         [SerializeField] private float _oneClickValue;
+
         public float OneClickValue
         {
             get

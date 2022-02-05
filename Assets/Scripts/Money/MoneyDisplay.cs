@@ -1,34 +1,30 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-[RequireComponent(typeof(TMP_Text))]
-public class MoneyDisplay : MonoBehaviour
+namespace Scripts
 {
-    private MoneyManager _playerWallet;
-    private TMP_Text _moneyDisplay;
+    [RequireComponent(typeof(TMP_Text))]
 
-
-    private void Start()
+    public class MoneyDisplay : MonoBehaviour
     {
+        private static TMP_Text _moneyDisplay;
 
-    }
 
-    private void OnEnable()
-    {
-        //MoneyManager.onChangeTextUI += UpdateMoneyTextUI;
-    }
+        private void Start()
+        {
+            _moneyDisplay = gameObject.GetComponent<TMP_Text>();
+        }
 
-    private void OnDisable()
-    {
 
-    }
-
-    private void UpdateMoneyTextUI(float money)
-    {
-        _moneyDisplay.text = money.ToString();
+        public static void UpdateMoneyTextUI(float money, bool sign)
+        {
+            _moneyDisplay.text = money.ToString();
+        }
     }
 }
+
