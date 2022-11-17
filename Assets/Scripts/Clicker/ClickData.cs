@@ -1,14 +1,17 @@
-// Класс Click содержит состояния и поведения для сущности "Клик".
+// Класс  содержит данные о "клике".
+// Сколько стоит клик, насколько бонусы увеличивают клик и тд.
+
 
 using UnityEngine;
 using System;
 
 namespace Scripts
 {
-    public class Click : MonoBehaviour
+    public class ClickData : MonoBehaviour
     {
         [SerializeField] private float _oneClickValue;
 
+        // Свойство хранящее числ. значение 'клика'
         public float OneClickValue
         {
             get
@@ -36,6 +39,7 @@ namespace Scripts
             OneClickValue -= amount;
         }
 
+        // Подписуёмся на события клика
         private void OnEnable() => ClickExtension.click += DebugClickValue;
         private void OnDisable() => ClickExtension.click -= DebugClickValue;
 
