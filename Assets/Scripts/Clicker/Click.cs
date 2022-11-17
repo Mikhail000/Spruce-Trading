@@ -1,4 +1,4 @@
-// class -Click- contains states and behaviors for an "click" entity
+// Класс Click содержит состояния и поведения для сущности "Клик".
 
 using UnityEngine;
 using System;
