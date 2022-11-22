@@ -1,9 +1,8 @@
 // Класс  содержит данные о "клике".
 // Сколько стоит клик, насколько бонусы увеличивают клик и тд.
 
-
+using Unity.VisualScripting;
 using UnityEngine;
-using System;
 
 namespace Scripts
 {
@@ -11,7 +10,8 @@ namespace Scripts
     {
         [SerializeField] private float _oneClickValue;
 
-        // Свойство хранящее числ. значение 'клика'
+        private float _clickValue;
+        
         public float OneClickValue
         {
             get
@@ -24,11 +24,6 @@ namespace Scripts
             }
         }
 
-        private void Start()
-        {
-            //_oneClickValue = 1f;
-        }
-
         public void IncreaseClickValue(float amount)
         {
             OneClickValue += amount;
@@ -38,8 +33,7 @@ namespace Scripts
         {
             OneClickValue -= amount;
         }
-
-        // Подписуёмся на события клика
+        
         private void OnEnable() => ClickExtension.click += DebugClickValue;
         private void OnDisable() => ClickExtension.click -= DebugClickValue;
 

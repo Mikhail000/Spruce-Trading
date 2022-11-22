@@ -18,9 +18,7 @@ namespace Scripts
         private float _clickDuration = 0.2f;
 
         private bool isClickHeld;
-
-
-        // OnPointerDown 
+        
         public void OnPointerDown(PointerEventData eventData)
         {
             isClickHeld = true;
