@@ -9,19 +9,25 @@ namespace Spruce
     public class SpruceBase : MonoBehaviour
     {
         [SerializeField] private SpruceSpeciesData spruceSpeciesData;
-
-        private GameObject manager;
+        private GameObject _manager;
+        private SpruceState _spruceState;
+        
         private string _species;
         private float _maxGrowthPoints;
         private float _revenue;
-
+        private ParticleSystem _growthEffect;
         private float _growthPoints;
         private float _currentClickValue;
-
+        
         public float GrowthPoints
         {
             get { return _growthPoints; }
             set { _growthPoints = value; }
+        }
+
+        private SpruceBase(SpruceState spruceState)
+        {
+            SetState(spruceState);
         }
         
         private void OnEnable() => ClickExtension.click += IncreaseGrowthPoints;
@@ -32,16 +38,17 @@ namespace Spruce
             _species = spruceSpeciesData.species;
             _maxGrowthPoints = spruceSpeciesData.maxGrowthPoints;
             _revenue = spruceSpeciesData.revenue;
-            manager = GameObject.Find("GameManager");
+            _growthEffect = spruceSpeciesData.growthEffect;
+            _manager = GameObject.Find("GameManager");
         }
         
-        protected void IncreaseGrowthPoints()
+        private void IncreaseGrowthPoints()
         {
-            GrowthPoints += manager.GetComponent<ClickData>().OneClickValue;
+            GrowthPoints += _manager.GetComponent<ClickData>().OneClickValue;
             Debug.Log("Елка растет!/n Очков роста -" + GrowthPoints);
         }
 
-        protected IEnumerator CheckGrowthPoints()
+        private IEnumerator CheckGrowthPoints()
         {
             while (gameObject)
             {
@@ -52,5 +59,12 @@ namespace Spruce
                 yield return null;
             }
         }
+
+        public void SetState(SpruceState spruceState)
+        {
+            _spruceState = spruceState;
+            _spruceState.SpruceBase = this;
+        }
+        
     }
 }
