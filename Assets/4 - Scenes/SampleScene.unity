@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b72175ee49f9e14aa46126fb9427d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _oneClickValue: 1
+  _oneClickValue: 5
 --- !u!1 &1460820390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,41 +1041,9 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1533853974485254505, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1821007291042517819, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
       propertyPath: m_Name
       value: GreenSpruce
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415445892458276378, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3481301144380720958, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: _spruceStages.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3481301144380720958, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: _spruceStages.Array.data[0]
-      value: 
-      objectReference: {fileID: 1707512220}
-    - target: {fileID: 3481301144380720958, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: _spruceStages.Array.data[1]
-      value: 
-      objectReference: {fileID: 1707512219}
-    - target: {fileID: 3481301144380720958, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: _spruceStages.Array.data[2]
-      value: 
-      objectReference: {fileID: 1707512218}
-    - target: {fileID: 5535497560241429222, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975100304455737027, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8296327315268838620, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
       propertyPath: m_RootOrder
@@ -1121,25 +1089,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3481301144380720958, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
---- !u!1 &1707512218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1533853974485254505, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-  m_PrefabInstance: {fileID: 1707512217}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1707512219 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5535497560241429222, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-  m_PrefabInstance: {fileID: 1707512217}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1707512220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3415445892458276378, guid: 212c4eefced40de4e82f7e0112e3ba0f, type: 3}
-  m_PrefabInstance: {fileID: 1707512217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783212224
 GameObject:
   m_ObjectHideFlags: 0

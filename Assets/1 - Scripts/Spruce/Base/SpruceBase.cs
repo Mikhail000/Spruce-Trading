@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace Spruce
 {
     public class SpruceBase : MonoBehaviour
     {
-        public Transform currentSprucePrefab;
+        public GameObject currentSprucePrefab;
         public SpruceSpeciesData spruceSpeciesData;
         
         private GameObject _manager;
@@ -22,7 +23,6 @@ namespace Spruce
         private float _revenue;
 
         #endregion
-        
         
         #region Tree's Prefabs & Size Mark Points
 
@@ -40,6 +40,7 @@ namespace Spruce
         #endregion
         
         private float _currentClickValue;
+        private Transform _sprucePrefabSpawnPoint;
 
         public float CurrentGrowthPoints { get; set; }
 
@@ -48,10 +49,12 @@ namespace Spruce
 
         private void Start()
         {
+            _sprucePrefabSpawnPoint = gameObject.GetComponent<Transform>();
+            
             _manager = GameObject.Find("GameManager");
             _stateMachine = new StateMachine();
             _stateMachine.Initialize(new SproutSizeState(this));
-            
+
             _species = spruceSpeciesData.species;
             _maxGrowthPoints = spruceSpeciesData.maxGrowthPoints;
             _revenue = spruceSpeciesData.revenue;
@@ -67,6 +70,19 @@ namespace Spruce
 
             _growthEffect = spruceSpeciesData.growthEffect;
         }
+
+        public void SpawnSprucePrefab(GameObject sprucePrefab)
+        {
+            
+            currentSprucePrefab = sprucePrefab;
+            currentSprucePrefab = Instantiate(currentSprucePrefab,_sprucePrefabSpawnPoint);
+            Debug.Log("У тебя в руках игра - это мой хуй");
+        }
+
+        public void DestroySprucePrefab()
+        {
+            Destroy(currentSprucePrefab);
+        }
         
         private void IncreaseGrowthPoints()
         {
@@ -74,7 +90,11 @@ namespace Spruce
 
             if (CurrentGrowthPoints >= _mediumSizePointsMark)
             {
-                
+                _stateMachine.ChangeState(new MediumSizeState(this));
+            }
+            if (CurrentGrowthPoints >= _bigSizePointsMark)
+            {
+                _stateMachine.ChangeState(new BigSizeState(this));
             }
             
             Debug.Log("Елка растет!/n Очков роста -" + CurrentGrowthPoints);

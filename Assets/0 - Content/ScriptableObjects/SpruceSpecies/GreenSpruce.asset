@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GreenSpruce
   m_EditorClassIdentifier: 
   species: Green Spruce
-  maxGrowthPoints: 50
+  maxGrowthPoints: 10
   revenue: 250
-  smallSize: {fileID: 8436502722608867271, guid: 2403344cb0072fe4685090b7717f78ce, type: 3}
+  smallSizeForm: {fileID: 8436502722608867271, guid: 2403344cb0072fe4685090b7717f78ce, type: 3}
   smallSizePointsMark: 0
-  mediumSize: {fileID: 9119740805989524945, guid: fde6ab71f1df19144ab32926623b7cbd, type: 3}
-  mediumSizePointsMark: 25
-  bigSize: {fileID: 2517214751658990678, guid: 21cfc2b648510814a953a14f1e455b7e, type: 3}
-  bigSizePointsMark: 50
+  mediumSizeForm: {fileID: 9119740805989524945, guid: fde6ab71f1df19144ab32926623b7cbd, type: 3}
+  mediumSizePointsMark: 5
+  bigSizeForm: {fileID: 2517214751658990678, guid: 21cfc2b648510814a953a14f1e455b7e, type: 3}
+  bigSizePointsMark: 10
   growthEffect: {fileID: 4124136744373985602, guid: 48ec16e76c92b8f4682d97cae7edc883, type: 3}
