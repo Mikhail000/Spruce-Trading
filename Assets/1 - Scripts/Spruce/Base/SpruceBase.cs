@@ -10,11 +10,14 @@ namespace Spruce
     {
         [SerializeField] private SpruceSpeciesData spruceSpeciesData;
         private GameObject _manager;
-        private SpruceState _spruceState;
+        private BaseState _baseState;
+        private StateMachine _st;
         
         private string _species;
         private float _maxGrowthPoints;
         private float _revenue;
+        private float _mediumSizePointsMark;
+        private float _bigSizePointsMark;
         private ParticleSystem _growthEffect;
         private float _growthPoints;
         private float _currentClickValue;
@@ -24,27 +27,32 @@ namespace Spruce
             get { return _growthPoints; }
             set { _growthPoints = value; }
         }
-
-        private SpruceBase(SpruceState spruceState)
-        {
-            SetState(spruceState);
-        }
+        
         
         private void OnEnable() => ClickExtension.click += IncreaseGrowthPoints;
         private void OnDisable() => ClickExtension.click -= IncreaseGrowthPoints;
 
         private void Start()
         {
+            _manager = GameObject.Find("GameManager");
+            _st = new StateMachine();
+            
+            
             _species = spruceSpeciesData.species;
             _maxGrowthPoints = spruceSpeciesData.maxGrowthPoints;
             _revenue = spruceSpeciesData.revenue;
+            _mediumSizePointsMark = spruceSpeciesData.mediumSizePointsMark;
+            _bigSizePointsMark = spruceSpeciesData.bigSizePointsMark;
             _growthEffect = spruceSpeciesData.growthEffect;
-            _manager = GameObject.Find("GameManager");
         }
         
         private void IncreaseGrowthPoints()
         {
             GrowthPoints += _manager.GetComponent<ClickData>().OneClickValue;
+            if (GrowthPoints <= _mediumSizePointsMark)
+            {
+                
+            }
             Debug.Log("Елка растет!/n Очков роста -" + GrowthPoints);
         }
 
@@ -58,12 +66,6 @@ namespace Spruce
                 }
                 yield return null;
             }
-        }
-
-        public void SetState(SpruceState spruceState)
-        {
-            _spruceState = spruceState;
-            _spruceState.SpruceBase = this;
         }
         
     }
