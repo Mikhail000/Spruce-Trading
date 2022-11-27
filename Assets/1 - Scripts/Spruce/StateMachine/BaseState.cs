@@ -4,11 +4,8 @@ using UnityEngine;
 public abstract class BaseState
 {
     protected SpruceBase _spruceBase;
-
-    protected BaseState(SpruceBase spruceBase)
-    {
-        
-    }
+    
+    protected BaseState(SpruceBase spruceBase) {}
 
     public virtual void Enter(){}
 

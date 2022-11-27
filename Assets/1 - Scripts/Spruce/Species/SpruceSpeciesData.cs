@@ -10,15 +10,15 @@ public class SpruceSpeciesData : ScriptableObject
      public float revenue;
      
      [Header("Spruce Small Attributes")]
-     public GameObject smallSize;
+     public GameObject smallSizeForm;
      public float smallSizePointsMark;
      
      [Header("Spruce Medium Attributes")]
-     public GameObject mediumSize;
+     public GameObject mediumSizeForm;
      public float mediumSizePointsMark;
      
      [Header("Spruce Big Attributes")]
-     public GameObject bigSize;
+     public GameObject bigSizeForm;
      public float bigSizePointsMark;
      
      [Header("Growth Effect")]
