@@ -25,22 +25,19 @@ namespace Spruce
         #endregion
         
         #region Tree's Prefabs & Size Mark Points
-
-        private GameObject _smallSizeForm;
-        private float _smallSizePointsMark;
         
-        private GameObject _mediumSizeForm;
         private float _mediumSizePointsMark;
-    
-        private GameObject _bigSizeForm;
+        
         private float _bigSizePointsMark;
     
-        private ParticleSystem _growthEffect;
+        private GameObject _growthEffect;
         
         #endregion
         
         private float _currentClickValue;
         private Transform _sprucePrefabSpawnPoint;
+        public GameObject growthFX;
+        public ParticleSystem GrowthFX;
 
         public float CurrentGrowthPoints { get; set; }
 
@@ -49,6 +46,7 @@ namespace Spruce
 
         private void Start()
         {
+            //growthFX = _growthEffect;
             _sprucePrefabSpawnPoint = gameObject.GetComponent<Transform>();
             
             _manager = GameObject.Find("GameManager");
@@ -59,21 +57,12 @@ namespace Spruce
             _maxGrowthPoints = spruceSpeciesData.maxGrowthPoints;
             _revenue = spruceSpeciesData.revenue;
 
-            _smallSizeForm = spruceSpeciesData.smallSizeForm;
-            _smallSizePointsMark = spruceSpeciesData.smallSizePointsMark;
-
-            _mediumSizeForm = spruceSpeciesData.mediumSizeForm;
             _mediumSizePointsMark = spruceSpeciesData.mediumSizePointsMark;
-
-            _bigSizeForm = spruceSpeciesData.bigSizeForm;
             _bigSizePointsMark = spruceSpeciesData.bigSizePointsMark;
-
-            _growthEffect = spruceSpeciesData.growthEffect;
         }
 
         public void SpawnSprucePrefab(GameObject sprucePrefab)
         {
-            
             currentSprucePrefab = sprucePrefab;
             currentSprucePrefab = Instantiate(currentSprucePrefab,_sprucePrefabSpawnPoint);
             Debug.Log("У тебя в руках игра - это мой хуй");
@@ -82,6 +71,12 @@ namespace Spruce
         public void DestroySprucePrefab()
         {
             Destroy(currentSprucePrefab);
+        }
+
+        public void PlayGrowthPartsFX(ParticleSystem growthEffect)
+        {
+            Instantiate(GrowthFX, _sprucePrefabSpawnPoint);
+            GrowthFX.Play();
         }
         
         private void IncreaseGrowthPoints()

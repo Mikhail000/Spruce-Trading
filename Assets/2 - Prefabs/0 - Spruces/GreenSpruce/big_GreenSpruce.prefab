@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3000841930837952236}
   - component: {fileID: 3833057816762382594}
   m_Layer: 0
-  m_Name: large_spruce
+  m_Name: big_GreenSpruce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 2437878846385338292}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3833057816762382594
 BoxCollider:

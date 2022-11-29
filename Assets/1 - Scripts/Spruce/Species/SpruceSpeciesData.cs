@@ -20,7 +20,6 @@ public class SpruceSpeciesData : ScriptableObject
      [Header("Spruce Big Attributes")]
      public GameObject bigSizeForm;
      public float bigSizePointsMark;
-     
-     [Header("Growth Effect")]
-     public ParticleSystem growthEffect;
+
+     [Header("Spruce FXs")] public ParticleSystem growthEffect;
 }
