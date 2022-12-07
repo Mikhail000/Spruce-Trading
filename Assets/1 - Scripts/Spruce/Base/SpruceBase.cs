@@ -9,19 +9,31 @@ namespace Spruce
 {
     public class SpruceBase : MonoBehaviour
     {
+        /*--Состояния--*/
+        
+        #region Data, Nodes
+
         public GameObject currentSprucePrefab;
         public SpruceSpeciesData spruceSpeciesData;
-        
+
+        private ParticleSystem _growthFX;
         private GameObject _manager;
         private BaseState _baseState;
         private StateMachine _stateMachine;
         
-        #region Common Parameters
 
+        #endregion
+        
+        #region Common Parameters
+        
+        public float CurrentGrowthPoints { get; set; }
+        
         private string _species;
         private float _maxGrowthPoints;
         private float _revenue;
-
+        private float _currentClickValue;
+        private Transform _sprucePrefabSpawnPoint;
+        
         #endregion
         
         #region Tree's Prefabs & Size Mark Points
@@ -31,22 +43,20 @@ namespace Spruce
         private float _bigSizePointsMark;
     
         private GameObject _growthEffect;
+
+        private bool _isSwitchable;
         
         #endregion
         
-        private float _currentClickValue;
-        private Transform _sprucePrefabSpawnPoint;
-        public GameObject growthFX;
-        public ParticleSystem GrowthFX;
-
-        public float CurrentGrowthPoints { get; set; }
+        /*--Поведения--*/
 
         private void OnEnable() => ClickExtension.click += IncreaseGrowthPoints;
         private void OnDisable() => ClickExtension.click -= IncreaseGrowthPoints;
 
         private void Start()
         {
-            //growthFX = _growthEffect;
+            _isSwitchable = false;
+            
             _sprucePrefabSpawnPoint = gameObject.GetComponent<Transform>();
             
             _manager = GameObject.Find("GameManager");
@@ -65,35 +75,44 @@ namespace Spruce
         {
             currentSprucePrefab = sprucePrefab;
             currentSprucePrefab = Instantiate(currentSprucePrefab,_sprucePrefabSpawnPoint);
-            Debug.Log("У тебя в руках игра - это мой хуй");
+            Debug.Log("Отспавнить новый префаб дерева");
         }
 
-        public void DestroySprucePrefab()
+        public void DestroyPreviousSprucePrefab()
         {
             Destroy(currentSprucePrefab);
         }
 
+        public void RemoveSpruceOnSell()
+        {
+            Destroy(gameObject);
+        }
+
         public void PlayGrowthPartsFX(ParticleSystem growthEffect)
         {
-            Instantiate(GrowthFX, _sprucePrefabSpawnPoint);
-            GrowthFX.Play();
+            _growthFX = Instantiate(growthEffect, _sprucePrefabSpawnPoint);
+            _growthFX.Play();
         }
-        
+
         private void IncreaseGrowthPoints()
         {
             CurrentGrowthPoints += _manager.GetComponent<ClickData>().OneClickValue;
+            Debug.Log("Growth points - " + CurrentGrowthPoints);
 
-            if (CurrentGrowthPoints >= _mediumSizePointsMark)
+            if (CurrentGrowthPoints >= _mediumSizePointsMark && !_isSwitchable)
             {
                 _stateMachine.ChangeState(new MediumSizeState(this));
+                _isSwitchable = true;
             }
-            if (CurrentGrowthPoints >= _bigSizePointsMark)
+            else if(CurrentGrowthPoints >= _bigSizePointsMark)
             {
-                _stateMachine.ChangeState(new BigSizeState(this));
+                _isSwitchable = false;
+                if (!_isSwitchable)
+                {
+                    _stateMachine.ChangeState(new BigSizeState(this));  
+                }
+                _isSwitchable = true;
             }
-            
-            Debug.Log("Елка растет!/n Очков роста -" + CurrentGrowthPoints);
         }
-
     }
 }

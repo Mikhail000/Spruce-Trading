@@ -21,14 +21,14 @@ public class MediumSizeState : BaseState
         base.Enter();
         _spruceBase.SpawnSprucePrefab(_mediumSizeForm);
         _spruceBase.PlayGrowthPartsFX(_growthPartsEffect);
-        Debug.Log("Вошли в состояние куста");
+        Debug.Log("Зашли в 'Среднее' состояние");
     }
 
     public override void Exit()
     {
         base.Exit();
-        _spruceBase.DestroySprucePrefab();
-        Debug.Log("Вышли из состояния куста");
+        _spruceBase.DestroyPreviousSprucePrefab();
+        Debug.Log("Вышли из 'Среднего' состояния");
     }
 
     public override void Update()

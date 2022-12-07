@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BigSizeState : BaseState
 {
-    private SpruceBase _spruceBase;
+    private new readonly SpruceBase _spruceBase;
 
     private readonly GameObject _bigSizeForm;
     private readonly ParticleSystem _growthEffect;
@@ -22,13 +22,14 @@ public class BigSizeState : BaseState
         base.Enter();
         _spruceBase.SpawnSprucePrefab(_bigSizeForm);
         _spruceBase.PlayGrowthPartsFX(_growthPartsEffect);
-        Debug.Log("Вошли в состояние большого дерева");
+        Debug.Log("Зашли в 'Большое' состояние");
     }
 
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Пока Пошел нахуй");
+        _spruceBase.RemoveSpruceOnSell();
+        Debug.Log("Вышли из 'Большого' состояния");
     }
 
     public override void Update()

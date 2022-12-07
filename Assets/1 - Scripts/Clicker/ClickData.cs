@@ -39,7 +39,7 @@ namespace Scripts
 
         private void DebugClickValue()
         {
-            Debug.Log(OneClickValue);
+            //Debug.Log(OneClickValue);
         }
 
     }

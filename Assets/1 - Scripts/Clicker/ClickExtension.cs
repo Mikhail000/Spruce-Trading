@@ -30,15 +30,8 @@ namespace Scripts
         {
             isClickHeld = false;
             _clickPosition = eventData.position;
-
-            Debug.Log("OBJECT WITH NAME - "
-                      + name
-                      + " CLICKED "
-                      + " IN LOCAL OBJECTS POSITION - "
-                      + _clickPosition);
+            //Debug.Log("OBJECT WITH NAME - " + name + " CLICKED " + " IN LOCAL OBJECTS POSITION - " + _clickPosition);
         }
-
-        #region PRIVATE
 
         private IEnumerator OnHold()
         {
@@ -48,8 +41,5 @@ namespace Scripts
                 yield return new WaitForSeconds(_clickDuration);
             }
         }
-
-
-        #endregion
     }
 }

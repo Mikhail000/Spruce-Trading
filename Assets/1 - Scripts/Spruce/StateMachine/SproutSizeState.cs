@@ -20,14 +20,14 @@ public class SproutSizeState : BaseState
         base.Enter();
         _spruceBase.SpawnSprucePrefab(_smallSizeForm);
         _spruceBase.PlayGrowthPartsFX(_growthPartsEffect);
-        Debug.Log("Я родился!");
+        Debug.Log("Зашли в 'Маленькое' состояние");
     }
 
     public override void Exit()
     {
         base.Exit();
-        _spruceBase.DestroySprucePrefab();
-        Debug.Log("Вышли из состояния ростка");
+        _spruceBase.DestroyPreviousSprucePrefab();
+        Debug.Log("Вышли из 'Маленького' состояния");
     }
 
     public override void Update()
