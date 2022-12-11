@@ -1,7 +1,6 @@
 // класс ClickExtension - компонент для считывания клика. Содержит события для управления логикой в последствие клика.
 
 using UnityEngine;
-using System;
 using UnityEngine.EventSystems;
 using System.Collections;
 
