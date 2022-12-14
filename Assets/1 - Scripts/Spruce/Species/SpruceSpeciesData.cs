@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "SpruceSpeciesData", menuName = "SpruceSpeciesData")]
 public class SpruceSpeciesData : ScriptableObject

@@ -1,9 +1,18 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SpruceWidget : DraggableExtension
+public class SpruceWidgetExtension : MonoBehaviour
 {
+    [SerializeField] private string spruceName;
+    public delegate void ButtonClick(string name);
+    public static event ButtonClick buttonClick;
+
+    public void PassSpruceNameToSpawn()
+    {
+        buttonClick?.Invoke(spruceName);
+    }
+
+    /*
     public Image spruceWidgetImage;
     public GameObject sprucePrefab;
     public Transform parentWidgetPosition;
@@ -41,4 +50,5 @@ public class SpruceWidget : DraggableExtension
         base.OnPointerDown(eventData);
         
     }
+    */
 }
