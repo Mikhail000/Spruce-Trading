@@ -1,11 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
+using Spruce;
 
 public class SpruceWidgetExtension : MonoBehaviour
 {
+    [SerializeField]public SpruceSpeciesIDs Id;
+        
     [SerializeField] private string spruceName;
     public delegate void ButtonClick(string name);
     public static event ButtonClick buttonClick;
+
+    private void OnEnable()
+    {
+        
+    }
 
     public void PassSpruceNameToSpawn()
     {
