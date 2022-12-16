@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class MediumSizeState : BaseState
 {
-    private new readonly SpruceBase _spruceBase;
     private readonly GameObject _mediumSizeForm;
     private readonly ParticleSystem _growthPartsEffect;
     

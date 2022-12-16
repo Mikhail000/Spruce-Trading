@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SproutSizeState : BaseState
 {
-    private new readonly SpruceBase _spruceBase;
     private readonly GameObject _smallSizeForm;
     private readonly ParticleSystem _growthPartsEffect;
     

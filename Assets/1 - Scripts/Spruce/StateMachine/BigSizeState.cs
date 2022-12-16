@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class BigSizeState : BaseState
 {
-    private new readonly SpruceBase _spruceBase;
-
+    
     private readonly GameObject _bigSizeForm;
     private readonly ParticleSystem _growthEffect;
     private readonly ParticleSystem _growthPartsEffect;
@@ -28,7 +27,7 @@ public class BigSizeState : BaseState
     public override void Exit()
     {
         base.Exit();
-        _spruceBase.RemoveSpruceOnSell();
+        
         Debug.Log("Вышли из 'Большого' состояния");
     }
 

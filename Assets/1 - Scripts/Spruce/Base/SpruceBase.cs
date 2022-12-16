@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Scripts;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 namespace Spruce
 {
@@ -25,7 +21,6 @@ namespace Spruce
         #endregion
         
         #region Common Parameters
-        
         public float CurrentGrowthPoints { get; set; }
         
         private string _species;
@@ -45,6 +40,8 @@ namespace Spruce
         private GameObject _growthEffect;
 
         private bool _isSwitchable;
+
+        private bool _isReadyToHarvest;
         
         #endregion
         
@@ -56,11 +53,12 @@ namespace Spruce
         private void Start()
         {
             _isSwitchable = false;
+            _isReadyToHarvest = false;
             
             _sprucePrefabSpawnPoint = gameObject.GetComponent<Transform>();
             
-            _manager = GameObject.Find("GameManager");
-            _stateMachine = new StateMachine();
+            _manager = GameObject.Find("GameLogicHub");
+            _stateMachine = gameObject.AddComponent<StateMachine>();
             _stateMachine.Initialize(new SproutSizeState(this));
 
             _species = spruceSpeciesData.species;
@@ -75,7 +73,6 @@ namespace Spruce
         {
             currentSprucePrefab = sprucePrefab;
             currentSprucePrefab = Instantiate(currentSprucePrefab,_sprucePrefabSpawnPoint);
-            Debug.Log("Отспавнить новый префаб дерева");
         }
 
         public void DestroyPreviousSprucePrefab()
@@ -94,25 +91,41 @@ namespace Spruce
             _growthFX.Play();
         }
 
+        public void SetToHarvest()
+        {
+            _stateMachine.StopStateMachine(_stateMachine);
+        }
+        
         private void IncreaseGrowthPoints()
         {
-            CurrentGrowthPoints += _manager.GetComponent<ClickData>().OneClickValue;
-            Debug.Log("Growth points - " + CurrentGrowthPoints);
-
-            if (CurrentGrowthPoints >= _mediumSizePointsMark && !_isSwitchable)
+            if (CurrentGrowthPoints < _maxGrowthPoints)
             {
-                _stateMachine.ChangeState(new MediumSizeState(this));
-                _isSwitchable = true;
-            }
-            else if(CurrentGrowthPoints >= _bigSizePointsMark)
-            {
-                _isSwitchable = false;
-                if (!_isSwitchable)
+                CurrentGrowthPoints += _manager.GetComponent<ClickData>().OneClickValue;
+                Debug.Log("Growth points - " + CurrentGrowthPoints);
+                
+                if (CurrentGrowthPoints >= _mediumSizePointsMark && !_isSwitchable)
                 {
-                    _stateMachine.ChangeState(new BigSizeState(this));  
+                    _stateMachine.ChangeState(new MediumSizeState(this));
+                    _isSwitchable = true;
                 }
-                _isSwitchable = true;
+                else if(CurrentGrowthPoints >= _bigSizePointsMark)
+                {
+                    _isSwitchable = false;
+                    if (!_isSwitchable)
+                    {
+                        _stateMachine.ChangeState(new BigSizeState(this));  
+                    }
+                    _isSwitchable = true;
+                }
+                
             }
+            else if (CurrentGrowthPoints >= _maxGrowthPoints && !_isReadyToHarvest)
+            {
+                _stateMachine.ChangeState(new HarvestedSpruceState(this));
+                _isReadyToHarvest = true;
+            }
+
+            
         }
     }
 }

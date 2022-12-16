@@ -20,4 +20,9 @@ public class StateMachine : MonoBehaviour
         CurrentState = newState;
         CurrentState.Enter();
     }
+
+    public void StopStateMachine(StateMachine thisStateMachine)
+    {
+        Destroy(thisStateMachine);
+    }
 }

@@ -5,7 +5,13 @@ public class SpruceSpawnController : MonoBehaviour
     [SerializeField] private SpruceStorage spruceStorage;
     [SerializeField] private Transform spawnPoint;
 
-    private bool IsEngaged { get; set; }
+    private bool IsEngaged
+    {
+        set
+        {
+            value = true;
+        }
+    }
 
     private void OnEnable()
     {
