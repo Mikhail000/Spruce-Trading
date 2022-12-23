@@ -6,6 +6,7 @@ public class SpruceButtonWidget : MonoBehaviour
     [SerializeField]public SpruceSpeciesIDs Id;
         
     [SerializeField] private string spruceName;
+    
     public delegate void ButtonClick(string name);
     public static event ButtonClick buttonClick;
 
