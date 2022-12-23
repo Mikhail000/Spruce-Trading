@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8296327315268838620}
+  - component: {fileID: 695679887}
   - component: {fileID: 2864725125709499346}
   - component: {fileID: 5736395053782232461}
-  - component: {fileID: 695679887}
+  - component: {fileID: 2079633844550828235}
   m_Layer: 0
   m_Name: GreenSpruce
   m_TagString: Untagged
@@ -35,6 +36,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &695679887
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821007291042517819}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 10, z: 7}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!114 &2864725125709499346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +56,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821007291042517819}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 456148c0ca8a9354bb8fd0fb139dacec, type: 3}
   m_Name: 
@@ -61,20 +75,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSprucePrefab: {fileID: 0}
   spruceSpeciesData: {fileID: 11400000, guid: 6e4caef73fa179d4f9caed54f788482a, type: 2}
-  growthFX: {fileID: 0}
---- !u!65 &695679887
-BoxCollider:
+--- !u!114 &2079633844550828235
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821007291042517819}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 10, z: 3}
-  m_Center: {x: 0, y: 5, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2e80067619162439fe066677604145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredSliderName: 0
+  requiredSliderType: {fileID: 0}
+  currentSlider: {fileID: 0}
+  currentSliderImage: {fileID: 0}
+  curCircleSliderScript: {fileID: 0}
+  holdDuration: 0
+  rectTransofrm: {fileID: 0}
 --- !u!1 &4605781914939447706
 GameObject:
   m_ObjectHideFlags: 0

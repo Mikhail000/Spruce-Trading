@@ -7,7 +7,7 @@ public class DraggableExtension : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     public virtual void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        
     }
 
     public virtual void OnBeginDrag(PointerEventData eventData)

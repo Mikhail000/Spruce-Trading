@@ -124,8 +124,6 @@ namespace Spruce
                 _stateMachine.ChangeState(new HarvestedSpruceState(this));
                 _isReadyToHarvest = true;
             }
-
-            
         }
     }
 }

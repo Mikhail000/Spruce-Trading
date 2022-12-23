@@ -15,12 +15,12 @@ public class SpruceSpawnController : MonoBehaviour
 
     private void OnEnable()
     {
-        SpruceWidgetExtension.buttonClick += FindSpruceNameInStorage;
+        SpruceButtonWidget.buttonClick += FindSpruceNameInStorage;
     }
 
     private void OnDisable()
     {
-        SpruceWidgetExtension.buttonClick -= FindSpruceNameInStorage;
+        SpruceButtonWidget.buttonClick -= FindSpruceNameInStorage;
     }
 
     private void SpawnNewSpruce(GameObject sprucePrefab)
